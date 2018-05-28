@@ -1,0 +1,44 @@
+{% extends "admin/layout.html" %}
+
+
+
+<!-- 小图片的登录后用户名 -->
+{% block small %}
+    <span class="hidden-xs">{{ username }}</span>
+{% endblock %}
+
+
+
+<!-- 大一号用户名 -->
+{% block xxx %}
+    {{ username }}<small>{{ utcnow }}</small>
+{% endblock %}
+
+
+<!-- 判断登录没有 -->
+{% block div %}
+    {% if login_flag == 1 %}
+         <a>
+            欢迎您，<span style="color: red"> {{ username }} </span>
+         </a>
+     {% else %}
+        <li>
+            <a class="curlink" href="{{ url_for('home.home_login') }}"><span class="glyphicon glyphicon-log-in"></span>&nbsp;登录</a>
+        </li>
+        <li>
+            <a class="curlink" href="{{ url_for('home.home_register') }}"><span class="glyphicon glyphicon-plus"></span>&nbsp;注册</a>
+        </li>
+     {% endif %}
+
+
+{% endblock %}
+
+<!-- 内容 -->
+{% block content %}
+    <h1 align="center">欢迎来到微电影后台管理系统</h1>
+{% endblock %}
+
+<!-- 左边用户名 -->
+{% block user %}
+    <p>用户</p>{{ username }}
+{% endblock %}
